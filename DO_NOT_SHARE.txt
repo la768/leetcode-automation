@@ -1,0 +1,42 @@
+DO NOT SHARE THESE FILES
+========================
+
+Files that contain YOUR LeetCode session / credentials:
+
+    lc_cookies.txt        <- contains LEETCODE_SESSION (a JWT). Anyone holding this can
+    lc_cookies2.txt          act as your LeetCode account. NEVER send, upload, commit or
+                             zip these.
+
+If you are handing this folder to a friend (or uploading it anywhere), delete the two
+files above first, or use this PowerShell one-liner to copy the folder without them:
+
+    $src = 'C:\Users\User\Desktop\leetcode-automation'
+    $dst = 'C:\Users\User\Desktop\leetcode-share'
+    robocopy $src $dst /E /XD node_modules .claude /XF lc_cookies.txt lc_cookies2.txt
+    Copy-Item "$src\lc_cookies.txt.example" $dst
+
+Everyone must create their own lc_cookies.txt - see START-HERE.md section 2.
+
+ALSO NOTE
+---------
+* solver2.py contains a hardcoded LeetCode username in its GraphQL verdict query
+  (recentAcSubmissionList username:"lavcha"). A friend must replace it with their own
+  username, or every problem will end as TIMEOUT.
+* runner*.bat files contain an absolute path (cd /d C:\Users\User\Desktop\...). Edit it
+  to your own folder path, or use runner_tmpl.bat which is path-independent (%~dp0).
+* runner*.log / run*.log contain no secrets (just slugs and verdicts) but they are noisy;
+  delete them freely.
+* qids.json is a harmless cache of slug -> questionId.
+
+KEEP (these are the actual value of the folder)
+-----------------------------------------------
+    START-HERE.md, how to solve problems.txt
+    SOLUTIONS_MASTER.json, SOLUTIONS.md, SOLUTIONS_INDEX.md
+    solutions_*.json  (all banks), solved.txt, unsolved*.txt, pool_easy.txt
+    solver2.py, solver.py, regen_ledgers.py, prep_banks.py, build_archive.py, clean.py
+    check_login.py, get_cookie.js, runner_tmpl.bat, lc_cookies.txt.example
+
+FRIENDS: read START-HERE.md first
+---------------------------------
+It walks a fresh agent session through: getting your own cookie, verifying it,
+picking a bank, launching parallel runners, and rebuilding the ledgers.

@@ -1,0 +1,17 @@
+# === Secrets: never commit these ===
+lc_cookies*.txt
+*cookies*.txt
+*_session*.txt
+*.har
+# === Per-account state (belongs to whoever is logged in now) ===
+solved.txt
+unsolved*.txt
+pool_*.txt
+easy_unsolved.txt
+# === Local run artifacts ===
+node_modules/
+*.log
+*.err
+__pycache__/
+.claude/
+playwright_profile/

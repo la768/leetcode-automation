@@ -1,0 +1,360 @@
+================================================================================
+LEETCODE-AUTOMATION - PROJECT EXPLANATION
+================================================================================
+File: PROJECT_EXPLANATION.txt
+Scope: Current implementation as found in c:\Users\User\Desktop\leetcode-automation
+Date documented: 2026-09-21
+Rule: Secrets are never included ([SECRET OMITTED]). Unverifiable items are
+marked [NOT VERIFIED].
+
+--------------------------------------------------------------------------------
+1. PROJECT OVERVIEW
+--------------------------------------------------------------------------------
+
+Project name: leetcode-automation (folder: leetcode-automation)
+
+Purpose: Solve LeetCode problems on the user's OWN account by submitting
+already-banked Python 3 solutions automatically, and keep a local ledger of
+what is solved so future runs only attempt unsolved problems.
+
+Problem it solves: Manually opening, pasting and submitting hundreds of
+problems is slow (~2 min/problem naively, 30-90 sec wasted per problem if you
+poll the wrong verdict endpoint). This project cuts it to ~20 sec/problem
+(often 2-5 sec for the verdict) and allows 4 banks in parallel for ~4x
+throughput. It avoids repeat work by caching questionIds, CSRF tokens and the
+solved list locally.
+
+Main technologies:
+- Python 3 stdlib only (json, subprocess, time, sys, os, re, urllib, glob).
+  No pip dependencies for the solver.
+- Windows curl.exe as the HTTP client. All LeetCode traffic goes through
+  curl subprocess calls.
+- LeetCode HTTP APIs: GET / (CSRF refresh), GET /api/problems/all/ (catalog),
+  GET /graphql/?query=... (questionId + recentAcSubmissionList verdicts),
+  POST /problems/<slug>/submit/ (submit python3 code),
+  GET /submissions/detail/<id>/check/ (definitive check).
+- Node.js v16+ + Playwright ^1.62.1 + Chromium for browser variant and cookie
+  extraction (see package.json).
+- Windows Batch (.bat) self-restarting runner loops.
+- JSON solution banks: { "problem-slug": "python3 code", ... }.
+- Plain-text ledgers (solved.txt, unsolved.txt) as skip lists.
+
+Final result / output:
+- Real Accepted submissions on the user's profile (670 solved as of
+  2026-09-15 per START-HERE.md, target was 643).
+- Local evidence: runner*.log / run*.log lines like "[12] slug: Accepted"
+  plus "END solved: <N> accepted this run: <M>".
+- Refreshed ledgers: solved.txt (670 slugs), unsolved.txt (433 unsolved
+  easy), unsolved_medium.txt (2004 unsolved medium per START-HERE.md).
+- Reusable archive: SOLUTIONS_MASTER.json (454 unique, verified),
+  SOLUTIONS.md (human-readable), SOLUTIONS_INDEX.md (bank inventory).
+
+--------------------------------------------------------------------------------
+2. HOW THE PROJECT WORKS
+--------------------------------------------------------------------------------
+
+Two paths exist. Primary/fast path is the API path (solver2.py).
+Secondary/slow path is the browser path (leetcode_automation.js).
+PRIMARY PATH - API SUBMITTER (solver2.py), chronological order:
+INPUT: bank JSON (solutions_y1.json, solutions_gen1.json, solutions_all.json;
+slug -> python3 class Solution code); lc_cookies.txt Netscape jar
+(LEETCODE_SESSION + csrftoken via node get_cookie.js or manual copy, see
+lc_cookies.txt.example); solved.txt skip ledger (header e.g.
+"solved: 670 | updated: 2026-09-15 22:48" + one slug per line); qids.json
+cache (slug -> questionId). Command: python solver2.py <slug|x> <bank> <cap>,
+e.g. python solver2.py x solutions_y1.json 32. "x" = whole bank. Defaults:
+bank solutions_all.json, cap 50 (stop after N Accepted).
+
+INITIALIZATION (read_session, curl, refresh_csrf): read last TAB field of
+LEETCODE_SESSION line; curl GET https://leetcode.com/ with -b lc_cookies.txt
+-c lc_cookies2.txt then append session line (binds jar); parse csrftoken,
+print "csrf: True/False"; load qids.json to QIDS and solved.txt to SOLVED
+(ignore blanks + headers LEETCODE/Generated/Total/=, the golden skip rule);
+GET /api/problems/all/ to build status map from stat_status_pairs; print
+"START solved: <num_solved> | ledger size: N".
+
+PROCESSING (file-order loop): skip if argv filter mismatches or accept >= cap
+("reached cap" break). If slug in SOLVED or status=="ac" print
+"[N] slug: already solved skip" with zero HTTP. Else submit(): get_qid via
+cache or GraphQL query{question(titleSlug){questionId}} with write-through to
+qids.json (missing = premium/locked = SKIPPED); POST
+/problems/<slug>/submit/ {"lang":"python3",...} + X-CSRFToken/Referer/jar,
+retry 4x (sleep 3/6/9s) if submission_id missing else None. Print
+"[N] slug: <verdict>", count Accepted, sleep 1.5s cooldown.
+
+ANALYSIS (get_verdict_recent, two-phase trick): Phase 1 fast (~2-5s): 5x
+sleep 1.5s + GET recentAcSubmissionList(username "lavcha", limit 15), return
+on slug match (usually Accepted). NOTE "lavcha" hardcoded, MUST edit to your
+username or all degrade to TIMEOUT. Phase 2 definitive: 14x sleep 2s + GET
+/submissions/detail/<id>/check/; map 10 Accepted, 11 Wrong Answer, 12 Memory
+Limit, 13 Output Limit, 14 Time Limit, 15 Runtime Error, 20 Compile Error,
+else status_msg/UNKNOWN; else TIMEOUT. Rationale: /check/ via curl stays
+PENDING 30-90s; 1KB GraphQL list resolves Accepts fast, /check/ catches rest.
+DECISIONS: SKIPPED / None / Accepted / Wrong/Runtime/etc / TIMEOUT / skip.
+OUTPUT: runnerN.log lines + re-GET catalog "END solved: N accepted M".
+Side effects lc_cookies2.txt + grown qids.json.
+VALIDATION: check_login.py before (num_solved>0), regen_ledgers.py after,
+prep_banks.py + build_archive.py (sections 9-10).
+
+SECONDARY PATH - BROWSER (leetcode_automation.js): INPUT 5 hardcoded JS
+problems (Stock IV, Two Sum, Valid Parentheses, Climbing Stairs, Merge Two
+Sorted Lists). INIT chromium headless:false slowMo:50, 1920x1080, Chrome/120
+UA, goto /accounts/login/, manual login + ENTER. PROCESSING solveProblem():
+goto url (networkidle), 2s, CAPTCHA check, fill Monaco (click/Ctrl+A/Delete/
+type 20ms) or textarea, 2s, try 4 submit selectors, click, 15s. ANALYSIS
+scrape result DOM (200 chars) or Accepted/Wrong markers. OUTPUT terminal
+"COMPLETE: n/m". VALIDATION human watches, ENTER-resume CAPTCHA pauses, 2s
+delays. Reference only, not bulk solving.
+
+--------------------------------------------------------------------------------
+3. PROJECT STRUCTURE
+--------------------------------------------------------------------------------
+CORE SUBMITTERS: solver2.py (fast, ~123 lines, USE THIS; curl + GraphQL poll;
+argv slug|x bank cap + cookies/solved/qids/APIs in, verdicts + jar + qids +
+Accepts out; used by runner*.bat; read_session/curl/refresh_csrf/get_qid/
+get_verdict_recent/submit). solver.py (older ~100 lines, REFERENCE ONLY;
+per-problem CSRF + /check/-only 8x + catalog fallback; stale SESSION token
+[SECRET OMITTED] line 4, do not reuse; used by chain.bat/runner.bat).
+leetcode_automation.js (~213 lines Playwright demo; 5 hardcoded JS problems,
+manual login + CAPTCHA pause/resume; node leetcode_automation.js;
+waitForUserConfirmation/checkForCaptcha/fillCodeEditor/solveProblem/main).
+AUTH: check_login.py (RUN FIRST ~47 lines; probe jar lc_cookies_probe.txt +
+catalog, prints user_name/num_solved/ac splits + LOGIN OK vs NOT AUTH +
+3 fixes). get_cookie.js (~83 lines RECOMMENDED; Chromium headless:false,
+1s x900 poll for session + solved>0, writes lc_cookies.txt; node
+get_cookie.js, guarantees device/IP match). extract_cookies.mjs (alternate
+real-Chrome dump, stdin gate, less strict). get_cookies.py (legacy DevTools
+WS hardcoded url, [NOT VERIFIED active]). Jars: lc_cookies.txt (YOUR session,
+NEVER share), lc_cookies2.txt (solver runtime jar), lc_cookies_probe.txt.
+lc_cookies.txt.example (safe template).
+LEDGERS: solved.txt (670 + header, skip set); unsolved.txt (433 easy +
+header = easy minus solved via regen_ledgers.py), unsolved_easy.txt,
+unsolved_medium.txt, easy_unsolved.txt, pool_easy.txt (pools/snapshots);
+unsolved_now.json/solved_now.json (snapshots, producer [NOT VERIFIED]).
+qids.json (4055 slug->id cache, via get_qid + seed_qids.py). pending_bank.json
+/ leftovers.json (staging; leftovers via genfix.py).
+BANKS (JSON slug->code, ASCII, newline \n): solutions_y1..y4.json (32 each,
+parallel set); solutions_gen1.json (~104 merged gen1a-j minus solved via
+merge_gen1.py, verified Accepted); solutions_gen1a..j.json (10 each except
+h=17 j=18; gen1a..j.py ARE the sources). Others: all.json 101, b 43, c 15,
+big1-4 24/31/21/12, easy2 12, med 30, new 56, new1-4 10/10/10/1, next 50,
+batch2_y1-4 8/8/8/7, fix1 13. 36 files total incl master.
+SOLUTIONS_MASTER.json (454 unique deduped sorted), SOLUTIONS.md (readable +
+source tags), SOLUTIONS_INDEX.md (bank|entries|unique).
+RUNNERS: runner10..13.bat (current: 10->y1, 11->y2, 12->y3 inferred,
+13->y4 verified; loop echo RUN, solver2.py x bank 32, EXITCODE, timeout 8).
+runner.bat/2..9.bat (older banks/caps/sleeps; runner.bat 300x solver.py all,
+30s). runner_tmpl.bat (portable %~dp0 + SET BANK/LOG/CAP). chain.bat
+(tasklist gate + one solver.py all run).
+MAINTENANCE: regen_ledgers.py (rebuild solved/unsolved from catalog, exit 1
+if num_solved==0); prep_banks.py (strip zero-width 8203/8204/8205/65279/160/
+8232/8233/8199/8288, report non-ASCII/not-unsolved/already-solved);
+build_archive.py (merge all banks, longer-code-wins, skip bad JSON, write
+master/md/index); clean.py/fix.py (U+200B strip big sets); seed_qids.py
+(bulk qids from catalog); merge_gen1.py (gen1[a-j] first-wins minus solved);
+genfix.py/2/3.py (hand FIX overlays, e.g. smallest-string swap guard,
+unequal-groups List[str], latest-time hour, max-pair-sum, valid-words;
+genfix writes leftovers+fix1, others patch gen1); gen1a..j.py (BANK dict +
+dump); t_check.py/t_check2.py (probe check/<sid>); t_submit.py (single submit
+debug, default two-out-of-three); t_prob.py (GraphQL content+hints, 2500 chars).
+DOCS: START-HERE.md (handoff), how to solve problems.txt (~278-line manual),
+README.md (browser demo), DO_NOT_SHARE.txt (policy + robocopy),
+package.json (playwright ^1.62.1). .claude stub (template, no logic).
+
+--------------------------------------------------------------------------------
+4. DATA FLOW
+--------------------------------------------------------------------------------
+INPUT: banks {"slug":"class Solution..."} (ASCII, single quotes, no
+backslash, \n; via gen1*/genfix*, checked by prep_banks); session
+lc_cookies.txt TAB rows LEETCODE_SESSION ([SECRET OMITTED]) + csrftoken
+([SECRET OMITTED]) via get_cookie.js/manual; ledgers solved.txt (skip) +
+unsolved/pool files (pools); qids.json cache.
+PROCESSING per problem: entry -> skip check (SOLVED + API status, zero net
+if skip) -> get_qid (hit or GraphQL, write-through qids.json) -> POST submit
+{"lang":"python3",...} + CSRF/jar. Resp {"submission_id":int} or {} (rate
+limit) or {"error":"User is not authenticated"} (dead session). ID in memory
+only.
+INTERMEDIATE: lc_cookies2.txt (refreshed jar), qids.json (grows to 4055),
+submission_id transient, GraphQL lists (~1KB x5), /check/ payloads
+(status_code/msg, PENDING/FINISHED, runtime/compile/task_fail/compare,
+correct counts; see t_check*).
+ANALYSIS: phase-1 match -> statusDisplay; phase-2 code -> 10..20 text; else
+TIMEOUT/None/SKIPPED. FINAL: remote submission + ac + num_solved bump; local
+runner/run logs verdicts; ledgers via regen_ledgers.py; archive via
+build_archive.py. STORAGE: filesystem only, no DB; JSON + TAB jars + slug
+lists + bat + md. No AI APIs. BROWSER PATH: JS strings -> Monaco DOM ->
+Submit click -> judge -> DOM scrape -> terminal, no files.
+
+--------------------------------------------------------------------------------
+5. IMPORTANT LOGIC
+--------------------------------------------------------------------------------
+SKIP: solved.txt stripped, headers (LEETCODE/Generated/Total/=, solved:,
+unsolved:) ignored; one catalog status map; skip if SOLVED or ac, zero HTTP.
+QID: memory+qids first, GraphQL miss only, write-through; seed bulk-fills;
+missing = premium SKIPPED. CSRF: once at startup (bool print),
+X-CSRFToken+Referer per submit; solver.py per-problem refresh + retry;
+solver2 helper defined ([NOT VERIFIED in main loop]; relies on startup +
+4x retry); curl --max-time 25, Chrome/120 UA. RETRY: 4x, sleeps 3/6/9s on
+missing submission_id ({} = rate limit, reduce parallelism); then None + 150
+chars. VERDICT: phase1 5x1.5s lavcha/15, phase2 14x2s /check/ 10..20 map,
+worst ~35.5s/problem; cooldown 1.5s (solver2) / 3s (solver); wrong username =
+TIMEOUT. CAP/FILTER: only unless "x", cap argv3 or 50, file order [i+1],
+"reached cap" break. HYGIENE: strip BAD 8203/8204/8205/65279/160/8232/8233/
+8199/8288; report non-ASCII/not-unsolved/already-solved; new code ASCII/
+single-quote/backslash-free. DEDUP: sorted glob incl master, skip bad JSON,
+first-wins longer-replaces, track src. GEN1: [a-j] setdefault minus solved.
+FIXES: overwrite leftovers/gen1 (swap s[i]>s[i+1] guard, List[str] mapping,
+hour logic, new max-pair-sum/valid-words). BROWSER: 7 CAPTCHA x2s, Monaco
+15s click/Ctrl+A/Delete/type 20ms or textarea, 4 submit selectors, 15s wait,
+200-char scrape, 2s gaps, slowMo 50, 1920x1080. COOKIE GATE: require session
+AND solved>0 before writing jar.
+--------------------------------------------------------------------------------
+6. AI / ML / AUTOMATION
+--------------------------------------------------------------------------------
+Models/AI/ML/OCR/vision: NONE. No models, inference, training, OCR. Bank code
+hand-authored (offline AI assist [NOT VERIFIED]); runtime calls no AI API.
+A) API: jar refresh -> CSRF -> qid -> POST -> GraphQL -> /check/ fallback.
+Params --max-time 25, 1.5s x5, 2s x14, 1.5s cooldown, 3/6/9s backoff, cap
+32 parallel / 50 default, limit 15, lang python3. LeetCode APIs only.
+B) Browser (Playwright): automation.js headless:false slowMo 50 1920x1080
+networkidle 2s/15s + login/CAPTCHA gates; get_cookie.js slowMo 20 1440x900
+domcontentloaded 60s 1s x900 detect; extract .mjs channel:chrome stdin + 2s;
+get_cookies.py DevTools WS legacy.
+C) Batch: :loop timestamp + solver + EXITCODE + timeout 8/10/30; detached
+Invoke-CimMethod Win32_Process Create; monitor Get-Content -Tail /
+Select-String Accepted; stop Stop-Process python; chain tasklist gate.
+
+--------------------------------------------------------------------------------
+7. CONFIGURATION & DEPENDENCIES
+--------------------------------------------------------------------------------
+Software: Windows (cmd/tasklist/timeout/robocopy/curl.exe), Python 3 recent
+(stdlib only, no pip; minor [NOT VERIFIED]), Node v16+ + Chromium via "npx
+playwright install chromium" (or Chrome), optional VS Code + Cline.
+Libs: Python json/subprocess/time/sys/os/glob/re/urllib/base64 (aiohttp only
+legacy get_cookies.py, [NOT VERIFIED installed]). Node playwright ^1.62.1
+(package.json/lock/node_modules present). No ML models; tools curl,
+Playwright/Chromium, PowerShell, robocopy. Config: package.json 1.0.0,
+lc_cookies.txt.example template, runner_tmpl.bat (SET BANK/LOG/CAP + %~dp0),
+solver2.py constants (UA Chrome/120, user "lavcha" MUST EDIT, JAR
+lc_cookies2.txt, defaults all.json/50), get_cookie.js (900s, viewports/URLs),
+automation.js (5 problems, viewport, slowMo). Env vars NONE (no .env).
+Secrets: jars hold LEETCODE_SESSION ([SECRET OMITTED]) + csrftoken
+([SECRET OMITTED]); solver.py line 4 stale JWT ([SECRET OMITTED], ignore);
+.bats absolute cd C:\Users\User\Desktop\... (edit or template). Never
+commit/share jars (DO_NOT_SHARE.txt robocopy /XF).
+--------------------------------------------------------------------------------
+8. OUTPUTS
+--------------------------------------------------------------------------------
+FINAL: remote num_solved/ac/submissions (670+); solved.txt ("solved: N |
+updated: ..." + sorted slugs, authoritative); unsolved.txt (easy-minus-solved
++ header), unsolved_easy.txt, unsolved_medium.txt via regen_ledgers.py;
+SOLUTIONS_MASTER.json (454 sorted indent1, reusable); SOLUTIONS.md (readable
++ source tags); SOLUTIONS_INDEX.md (bank|entries|unique).
+INTERMEDIATE (regenerable; logs = evidence): lc_cookies2.txt,
+lc_cookies_probe.txt, qids.json (4055 grows), runner*.log/run*.log/gen1_run/
+genfix/batch2/leftovers logs (RUN + csrf/START/[N]/EXITCODE), leftovers.json/
+pending_bank.json staging, feeder banks, solved_now/unsolved_now.json
+(producer [NOT VERIFIED]). BROWSER: terminal only, no files.
+
+--------------------------------------------------------------------------------
+9. ERROR HANDLING & VALIDATION
+--------------------------------------------------------------------------------
+Retries 4x (3/6/9s) on missing submission_id; solver.py one CSRF retry;
+{} = rate limit (fewer runners/wider sleep). Timeouts phase1 5x1.5s phase2
+14x2s -> TIMEOUT; solver.py 8x(3+3s) then catalog scan; curl --max-time
+25/30/35/40; non-JSON -> {} / RAW head / exit 1 (Cloudflare/net). Auth error
+-> None per problem, loop continues (wasteful); check_login NOT AUTH + 3
+causes; regen exit 1 if num_solved==0. Premium no-qid SKIPPED. Bad JSON banks
+skipped. Hidden chars stripped/rewritten, non-ASCII reported, headers
+filtered, CRLF jar warning. Browser CAPTCHA manual pause before+after.
+get_cookie goto try/60s. Runners loop until killed; chain tasklist gate.
+BEFORE check_login.py (user_name + num_solved>0; optional JWT ip vs ipify
+check). DURING csrf bool, [N] lines, START vs END. AFTER regen_ledgers.py
+(authoritative) or offline log-regex MERGE into solved.txt (never overwrite);
+prep_banks.py; build_archive.py. DEBUG solver2.py <slug> bank 1, t_submit.py,
+t_check.py/<sid>, t_prob.py <slug>. STOP when num_solved==0/empty user; all
+None/TIMEOUT + auth error; all TIMEOUT valid submits (wrong username); many
+{} ; PENDING forever on /check/ alone (expected). 2026-09-15: 4 runners
+burned ~30 submits on bad cookie (check skipped).
+--------------------------------------------------------------------------------
+10. HOW TO RUN (verified only, from docs/source)
+--------------------------------------------------------------------------------
+Prereqs (browser): npm install | npx playwright install chromium
+1) Cookie: node get_cookie.js (Chromium login, auto-writes jar, 900s). Manual:
+same-machine F12 -> Cookies -> leetcode.com, copy LEETCODE_SESSION
+([SECRET OMITTED] ~800 chars, NOT eyJ JWT) + csrftoken ([SECRET OMITTED])
+to lc_cookies.txt TAB format (see example).
+2) Verify: python check_login.py (need LOGIN OK, num_solved>0).
+3) Validate: python prep_banks.py (non-ascii 0, no BAD).
+4) Foreground: python solver2.py x solutions_y1.json 32 (syntax <slug|x>
+<bank> <cap>; e.g. x solutions_gen1.json 50).
+5) Parallel 4x: edit runner10..13.bat (or copy runner_tmpl.bat %~dp0), launch
+detached: Invoke-CimMethod -ClassName Win32_Process -MethodName Create
+-Arguments @{CommandLine='cmd /c C:\path\to\folder\runner10.bat'} (repeat
+11-13). Monitor: Get-Content runner10.log -Tail 3 |
+(Get-Content runner10.log | Select-String 'Accepted').Count. Stop:
+Get-Process python -ErrorAction SilentlyContinue | Stop-Process -Force
+6) Ledgers: python regen_ledgers.py (rewrites sets). Offline: regex Accepted
+from runner10-13.log, MERGE into solved.txt (never overwrite; START-HERE 6).
+7) Archive: python build_archive.py (master/md/index).
+8) Debug: python solver2.py <slug> <bank> 1 | python t_submit.py |
+python t_check.py <sid> | python t_prob.py <slug>
+9) Demo: node leetcode_automation.js (manual login/ENTER/CAPTCHAs/ENTER).
+Per-person edit: solver2.py username "lavcha" -> yours, else TIMEOUT.
+
+--------------------------------------------------------------------------------
+11. CURRENT STATE
+--------------------------------------------------------------------------------
+Implemented: solver2.py fast submitter; check_login.py + get_cookie.js (+2
+alternates); parallel runners 10-13 (32-cap y1-y4) + older + chain + template;
+regen_ledgers, prep_banks, build_archive, seed_qids, merge_gen1, clean/fix,
+genfix 1-3, gen1a-j authoring, t_* probes, browser demo (5 JS); 36 banks,
+master 454, qids 4055, solved 670, easy pool 433, medium pool 2004; full docs.
+Limitations: easy-focused; premium SKIPPED; Windows-only; device/IP-bound
+rotating session (days/weeks expiry, no post-copy browsing); 3-4 parallel
+rate limits ({}); ~35s worst verdict, username must match; ASCII-only style +
+zero-width risk; no tests (npm test exits 1), no CI [NOT VERIFIED], no DB,
+raw token file; ToS risk (README: educational, own account, solved-manually
+only). TODOs: next bank from unsolved/pool_easy (433 left); ASCII
+class-Solution + prep + archive each addition; skip uncertain new signatures;
+merge (not overwrite) solved.txt. Deprecated: solver.py (stale SESSION, slow,
+ref only); get_cookies.py (hardcoded WS, replaced); runner.bat/2-9 (replaced
+10-13/template); clean/fix one-shots (prep general); .claude stub (template).
+Future needs: own jar + username + path edits, Python 3 + curl (+ Node/
+Playwright/Chromium for browser), discipline check_login before, prep before
+bank changes, regen + archive after campaigns.
+--------------------------------------------------------------------------------
+12. COMPLETE PROJECT FLOW
+--------------------------------------------------------------------------------
+USER (account owner, e.g. lavcha)
+v
+ENTRY POINTS: A) python check_login.py (first) | B) python solver2.py x
+<bank> <cap> (foreground) | C) runner10-13.bat detached (parallel) | D) node
+leetcode_automation.js (demo) | E) prep/regen/archive/seed/t_*/gen* maint
+v
+INPUT: bank JSON (slug->python3) + lc_cookies.txt jar (via get_cookie.js or
+manual example) + solved.txt skip set + qids.json cache
+v
+INITIALIZATION: login check (user_name/num_solved>0); jar refresh to
+lc_cookies2.txt + CSRF parse; SOLVED + qids load; catalog status map
+v
+PROCESSING: per entry skip (solved/ac, zero HTTP) else qid (cache/GraphQL)
+else POST submit python3 (4x 3/6/9s retry, 1.5s cooldown, 4x parallel)
+v
+ANALYSIS / LOGIC: phase-1 GraphQL recent 5x1.5s (fast Accept) + phase-2
+/check/ 14x2s 10..20 mapping (Wrong/Runtime/etc) else TIMEOUT/SKIPPED/None;
+hygiene + longest-wins dedup
+v
+OUTPUT: remote Accepted + num_solved 670+; local runner/run logs + qids
+growth + refreshed jars
+v
+VALIDATION: END vs START counts; regen_ledgers rebuild (or log-regex merge);
+prep + archive refresh; browser CAPTCHA human gates + 2s delays
+v
+FINAL RESULT: reusable library (MASTER 454 + MD + INDEX) + growing solved
+ledger, so next campaign only spends submits on unsolved easy (433) /
+medium (2004).
+================================================================================
+END OF PROJECT EXPLANATION
+================================================================================
+

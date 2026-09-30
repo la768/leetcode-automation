@@ -1,0 +1,3 @@
+{
+  "find-common-elements-between-two-arrays": "class Solution:\n    def findCommonElements(self, nums1: List[int], nums2: List[int]) -> List[int]:\n        s1 = set(nums1)\n        s2 = set(nums2)\n        return [sum(1 for x in nums1 if x in s2), sum(1 for x in nums2 if x in s1)]"
+}

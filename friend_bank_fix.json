@@ -1,0 +1,4 @@
+{
+ "count-pairs-that-form-a-complete-day-i": "from typing import List\nclass Solution:\n    def countCompleteDayPairs(self, hours: List[int]) -> int:\n        # FIX: the loop already counts every complementary pair exactly once\n        # (it only visits k < 12), so the trailing `// 2` halved the answer.\n        from collections import Counter\n        c = Counter(h % 24 for h in hours)\n        ans = 0\n        for k, v in c.items():\n            if k in (0, 12):\n                ans += v * (v - 1) // 2\n            elif k < 12:\n                ans += v * c.get(24 - k, 0)\n        return ans\n",
+ "determine-color-of-a-chessboard-square": "class Solution:\n    def squareIsWhite(self, coordinates: str) -> bool:\n        # FIX: the parity test was inverted (a1 must be False/dark).\n        return (ord(coordinates[0]) - 97 + int(coordinates[1])) % 2 == 0\n"
+}

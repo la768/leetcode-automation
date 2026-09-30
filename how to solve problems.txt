@@ -1,0 +1,278 @@
+================================================================================
+HOW TO SOLVE LEETCODE PROBLEMS AUTOMATICALLY (for future sessions)
+Author: lavcha (leetcode.com/u/lavcha)
+================================================================================
+
+This file is the operating manual for a future AI coding session that needs
+to solve LeetCode problems on this user's account. Read it carefully before
+doing ANY work. It encodes hard-won lessons that cut per-problem time from
+~2 minutes down to ~20 seconds.
+
+--------------------------------------------------------------------------------
+0. THE MOST IMPORTANT RULE: READ solved.txt FIRST
+--------------------------------------------------------------------------------
+There is a local file in this workspace called  solved.txt  that lists EVERY
+problem this account has ALREADY solved (a flat list of LeetCode slugs, one
+per line). It is tiny (~6 KB) and parses instantly.
+
+- ALWAYS load solved.txt into memory at the start of a session.
+- NEVER re-fetch the whole catalog from the web just to discover "solved".
+  That is a 3+ MB JSON download that takes 10+ seconds every run, and the
+  anonymous version returns 0 solved (you must be authenticated).
+- When iterating over a bank of candidate solutions, SKIP any slug found in
+  solved.txt immediately — do not submit it, do not query its id, do nothing.
+
+This single habit removes the repeated  "already solved skip"  wasted work
+that was seen in every run.
+
+--------------------------------------------------------------------------------
+1. AUTHENTICATION / COOKIES (how to act as the user)
+--------------------------------------------------------------------------------
+LeetCode blocks anonymous API calls. The reliable way to act as lavcha is a
+valid LEETCODE_SESSION cookie. Files in this workspace:
+
+  lc_cookies.txt    - the raw cookies (CSRF + LEETCODE_SESSION) as a
+                      Netscape cookie jar produced by curl -c
+  lc_cookies2.txt   - a copy of the jar refreshed/bound at solver runtime
+  qids.json         - cache of slug -> questionId (populated as we go)
+
+The session cookie value is a JWT starting with "eyJ...". It expires; if the
+API starts returning anonymous data (num_solved == 0) the session has lapsed
+and the user must paste a fresh LEETCODE_SESSION.
+
+Accepted cookie pattern that works:
+  curl.exe -s --max-time 25 https://leetcode.com/ -H 'User-Agent: <UA>' \
+      -b <jar> -c <jar>   # refreshes CSRF into the jar
+
+--------------------------------------------------------------------------------
+2. THE FAST SUBMISSION LOOP (TIME-COMPLEXITY OF THE PROCESS)
+--------------------------------------------------------------------------------
+Lessons learned the hard way. Order matters — the #1 lesson is at the top.
+
+  A) DO NOT poll the endpoint:  /submissions/detail/{id}/check/
+     Via CLI (curl) this stays  "PENDING"  forever and never reaches
+     FINISHED in reasonable time. Polling it 8 x 6 s = 48 s of pure waste
+     per problem. This was the single biggest time sink.
+
+  B) USE the lightweight GraphQL recent list for verdicts instead:
+       query{recentAcSubmissionList(username:"lavcha",limit:15){titleSlug statusDisplay}}
+     The response is ~1 KB. After submitting, poll this every ~1.5 s; as soon
+     as the slug appears with statusDisplay == "Accepted" you are done.
+     This returns a verdict in ~2–5 s instead of a guaranteed 30–90 s stall.
+
+  C) CACHE the CSRF token and questionIds — do NOT re-fetch per problem.
+     - Get CSRF once at startup from the homepage (with the session cookie).
+     - questionId for each slug is cached in qids.json. First lookup is a
+       GraphQL call; afterwards it is a local dict hit. Only fall back to a
+       fresh lookup if the slug is missing from the cache.
+
+  D) ALWAYS add  --max-time 25  to every curl call. A hung HTTP request is
+     otherwise infinite and silently stalls the whole run.
+
+  E) Rate-limits appear as an EMPTY response {} from the submit endpoint.
+     Add a retry loop (3–4 attempts) with backoff (3 s, then +3 s each try).
+     Do not give up after the first empty response. CSRF can also rotate —
+     refresh it and retry once on an empty response.
+
+  F) Keep a small cooldown (~1.5 s) between submissions and submit
+     SEQUENTIALLY. Do NOT parallelize submits — that triggers LeetCode's
+     rate limiter / CAPTCHA and gets you blocked (this blocked browser login
+     earlier).
+
+  G) Self-restarting runner: use a batch loop that re-invokes the solver with
+     a  :loop / goto loop  so that if the python process dies from a timeout
+     or a partial failure, it comes back and continues (skipping solved via
+     solved.txt). See runner2.bat.
+
+-------------------------------------------------------------------------------
+3. SUBMITTING CODE VIA THE API (the exact shape)
+-------------------------------------------------------------------------------
+1) Resolve questionId (from qids.json cache or GraphQL question{titleSlug}).
+2) Skip if no questionId -> premium problem, cannot submit via this path.
+3) POST to:  https://leetcode.com/problems/<slug>/submit/
+   Headers (all required):
+     Content-Type: application/json
+     X-Requested-With: XMLHttpRequest
+     Origin: https://leetcode.com
+     Referer: https://leetcode.com/problems/<slug>/
+     X-CSRFToken: <csrf>
+     (plus the cookie jar)
+   Body (JSON):
+     {"lang":"python3","question_id":<qid>,"typed_code":"<the source code>"}
+
+--------------------------------------------------------------------------------
+4. THE SOLUTIONS BANK (how to add new solutions)
+--------------------------------------------------------------------------------
+Solutions live in JSON files such as  solutions_new.json  (and the older
+solutions_all.json / solutions_a,b,c.json). Format is:
+
+  {
+    "<problem-slug>": "<complete python3 source>",
+    "<problem-slug2>": "<complete python3 source>"
+  }
+
+Each value is the ENTIRE python3 submission (class definitions, imports,
+helper classes like ListNode/TreeNode when the problem needs them). The
+solver submits exactly this text as typed_code.
+
+To expand the bank (this is how you actually solve NEW problems):
+  1) Pick an UNSOLVED slug — load solved.txt, then choose a fresh target.
+     Prefer Easy problems first (matches the account's history and maximizes
+     the success/throughput ratio).
+  2) Write a correct, complete python3 solution.
+  3) Append it to solutions_new.json (keep the JSON valid).
+  4) Re-run the solver; it will skip everything in solved.txt and submit the
+     new slug(s) only.
+
+Also note: strings in the JSON must have real newlines. The editor tool
+escapes \n literally, but the JSON parser turns "\n" into a real newline on
+load, so that is fine — the code inside the string uses \n escapes and the
+questionId/typed_code JSON survives correctly.
+
+To submit, the solver reads solutions as  { slug: "source code" }.
+
+--------------------------------------------------------------------------------
+5. MULTI-TERMINAL STRATEGY (manage time + survive tool timeouts)
+--------------------------------------------------------------------------------
+AI tool calls are often force-aborted after ~4–5 minutes. A solver running in
+the SAME terminal gets killed every time. Fix: run the solver DETACHED in a
+separate OS process so it outlives the tool call, and use the interactive
+terminal only for quick monitoring.
+
+  DETACHED LAUNCH (works in PowerShell):
+    Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{
+      CommandLine = 'cmd /c C:\Users\User\Desktop\leetcode-automation\runner2.bat'
+    }
+
+  The runner2.bat self-restarts, appends to runner2.log, and skips solved.
+
+  MONITORING (cheap, fast — foreground terminal):
+    Get-Content runner2.log -ErrorAction SilentlyContinue | Select-Object -Last 6
+    (Get-Content runner2.log | Select-String 'Accepted').Count
+    python -c "import json,subprocess; ... "  # to read num_solved live
+
+  Cleanup when done:
+    Get-Process python,cmd -ErrorAction SilentlyContinue | Stop-Process -Force
+
+--------------------------------------------------------------------------------
+6. EXPECTED THROUGHPUT
+--------------------------------------------------------------------------------
+With the fast loop (2B), a single problem costs roughly:
+  submit POST          ~1 s
+  verdict polling      ~2–5 s (GraphQL recent list)
+  cooldown             ~1.5 s
+  occasional retry     adds ~3–10 s
+
+So ~20 s per problem on average. 50 problems ~ 15–20 minutes. Compare to the
+old approach (~2 min/problem = 90+ minutes for 50). The startup cost (CSRF +
+qids cache + one solved.txt parse) is seconds, NOT tens of seconds of web
+fetches — because you never download the full catalog.
+
+If you see many empty {} responses (rate-limited), widen the cooldown to
+~3–5 s and the retry backoff; it will slow down but avoid a full CAPTCHA block.
+
+--------------------------------------------------------------------------------
+7. COMMANDS CHEAT-SHEET (all PowerShell, Windows)
+--------------------------------------------------------------------------------
+# Read solved set into a Python set
+  python -c "import json; solo=set(x.strip() for x in open('solved.txt',encoding='utf-8') if x and not x.startswith(('L','G','T','='))); print(len(solo))"
+
+# Live solved count from the authenticated API
+  python -c "import json,subprocess; ua='Mozilla/5.0'; r=subprocess.run(['curl.exe','-s','--max-time','25','https://leetcode.com/api/problems/all/','-H','User-Agent: '+ua,'-b','lc_cookies2.txt'],capture_output=True,text=True,encoding='utf-8',errors='replace'); d=json.loads(r.stdout); print(d['num_solved'])"
+
+# Regenerate solved.txt after a run
+  python -c "import json,subprocess,time; ua='Mozilla/5.0'; r=subprocess.run(['curl.exe','-s','--max-time','25','https://leetcode.com/api/problems/all/','-H','User-Agent: '+ua,'-b','lc_cookies2.txt'],capture_output=True,text=True,encoding='utf-8',errors='replace'); d=json.loads(r.stdout); solo=sorted(p['stat']['question__title_slug'] for p in d['stat_status_pairs'] if p['status']=='ac'); open('solved.txt','w',encoding='utf-8').write('LEETCODE SOLVED LEDGER (lavcha)\nGenerated: '+time.strftime('%Y-%m-%d %H:%M:%S')+'\nTotal solved: '+str(len(solo))+'\n'+'='*50+'\n'+'\n'.join(solo)+'\n'); print('updated, total',len(solo))"
+
+# Find unsolved candidates among a solutions bank
+  python -c "import json; solo=set(x.strip() for x in open('solved.txt',encoding='utf-8') if x and not x.startswith(('L','G','T','='))); bank=json.load(open('solutions_new.json',encoding='utf-8')); uns=[s for s in bank if s not in solo]; print(len(uns),'unsolved of',len(bank)); [print(' ',s) for s in uns]"
+
+NOTE: commands marked with an embedding shell trick (nested formatting) should
+be re-typed cleanly; use the pattern above as-is in PowerShell.
+--------------------------------------------------------------------------------
+8. PARALLEL / MULTI-TERMINAL SOLVING (proved to work)
+--------------------------------------------------------------------------------
+The AI can spawn and manage MULTIPLE independent solver processes on its own —
+no setup is required from the user. This is the single biggest throughput win.
+
+PATTERN THAT WORKS (proved live, 136 problems in ~30 min):
+  - Create separate solution banks (e.g. solutions_big1.json, solutions_big2.json)
+  - Create separate runners (runner7.bat, runner8.bat, runner9.bat) that each run
+    solver2.py on a different bank
+  - Launch ALL of them as detached OS processes via WMI:
+      Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{
+        CommandLine = 'cmd /c C:\Users\User\Desktop\leetcode-automation\runner7.bat'
+      }
+  - Each runner logs to its own runnerN.log and self-restarts on a :loop
+  - The AI monitors all logs with cheap foreground commands:
+      Get-Content runner7.log -Tail 3
+      Get-Content runner8.log -Tail 3
+
+RATE-LIMIT CAUTION (learned live):
+  - Running 3+ parallel solvers increases empty-{} responses (rate-limited)
+  - When a submit returns {} (empty), the solver retries with backoff
+  - If many {} appear, widen the cooldown in solver2.py from 1.5s to 3-5s
+  - One batch (spiral-matrix) hit {} and was retried successfully on the next pass
+
+THROUGHPUT WITH PARALLELISM:
+  - 1 sequential solver: ~20-25s per problem
+  - 2 parallel solvers: ~12-15s per problem (each handles half the bank)
+  - 3 parallel solvers: ~8-12s per problem (but more retries)
+  - 136 problems solved in ~30 min with 3 parallel runners
+
+THE AI DOES THIS ON ITS OWN:
+  - The user does NOT need to open extra terminals
+  - The AI spawns detached processes via WMI that survive tool-call timeouts
+  - The AI monitors progress via cheap foreground commands
+  - The "proceed while running" button is only needed for the AI's monitoring
+    sleep commands — NOT for the solving itself
+
+LEDGER UPDATES AFTER PARALLEL RUNS:
+  - Each runner updates solved.txt as it accepts problems
+  - After all runners finish, rebuild solved.txt from the runner logs:
+      python -c "import re; accepted=set(); [accepted.add(m.group(1)) for f in ['runner7.log','runner8.log','runner9.log'] for line in open(f,encoding='utf-8') for m in [re.search(r'\[(?:[\d]+)\]\s+([\w-]+):\s+Accepted',line)] if m]; open('solved.txt','w',encoding='utf-8').write('solved: '+str(len(accepted))+' | updated: <timestamp>\n'+'\n'.join(sorted(accepted)))"
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+9. SESSION COOKIES ARE DEVICE-BOUND (learned 2026-09-15)
+--------------------------------------------------------------------------------
+A LEETCODE_SESSION cookie is NOT portable. The JWT embeds the IP address and a
+device fingerprint it was issued to:
+
+  claims: username / user_id / ip / device_with_ip / refreshed_at / _session_expiry
+
+If you copy the cookie from a phone, another PC, or a browser behind a VPN, the
+public IP of the machine running the solver does NOT match the claim, and LeetCode
+answers with the ANONYMOUS catalog instead of failing loudly:
+
+  {"user_name": "", "num_solved": 0, "num_total": 4055, ...}
+
+That is NOT a Cloudflare block and NOT a rate limit - the token was issued
+elsewhere. Symptoms:
+  - /api/problems/all/ returns valid JSON but num_solved == 0
+  - submit returns {"error": "User is not authenticated"}
+  - solver2.py prints "csrf: True" (CSRF works anonymously) but nothing is Accepted
+
+DIAGNOSE IN SECONDS:
+  python check_login.py          # reads lc_cookies.txt -> user_name / num_solved
+
+  # compare the JWT ip claim against this machine's public IP:
+  python -c "import base64,json,subprocess; tok=[l.split(chr(9))[-1].strip() for l in open('lc_cookies.txt',encoding='utf-8') if 'LEETCODE_SESSION' in l][0]; p=tok.split('.')[1]; p+='='*(-len(p)%4); d=json.loads(base64.urlsafe_b64decode(p)); print('issued to IP:', d.get('ip')); print('this machine :', subprocess.run(['curl.exe','-s','https://api.ipify.org'],capture_output=True,text=True).stdout.strip())"
+
+FIX (pick one):
+  A) Log in ON THIS MACHINE and let the helper write the cookie:
+       node get_cookie.js
+     A Chromium window opens; log in there; the script detects the session, writes
+     lc_cookies.txt (LEETCODE_SESSION + csrftoken) and closes the browser. This
+     guarantees the IP/User-Agent match.
+  B) Copy LEETCODE_SESSION from a browser running on this same machine/network,
+     save it in lc_cookies.txt, then run check_login.py BEFORE starting a run.
+
+ALSO NOTE
+  - LeetCode ROTATES the session token. After copying it, do not keep browsing
+    LeetCode in that browser: a page load can invalidate the copy you just took.
+  - The token is a full account credential. Never share, commit or zip it
+    (see DO_NOT_SHARE.txt).
+  - ALWAYS verify before a run: python check_login.py  (2 s vs a wasted 10 min run)
+  - 30 vanished submits: on 2026-09-15 four parallel runners burned ~30 submit
+    attempts on a mismatched cookie because the check had been skipped.
+--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------

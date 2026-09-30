@@ -1,0 +1,2508 @@
+{
+ "target": 240,
+ "start_solved": 403,
+ "accepted": [
+  {
+   "slug": "add-two-integers",
+   "title": "",
+   "qid": "2383",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406472,
+   "ts": "2026-09-26 04:51:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "best-time-to-buy-and-sell-stock",
+   "title": "",
+   "qid": "121",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406508,
+   "ts": "2026-09-26 04:51:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "counting-bits",
+   "title": "",
+   "qid": "338",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406541,
+   "ts": "2026-09-26 04:52:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-the-difference-of-two-arrays",
+   "title": "",
+   "qid": "1392",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406565,
+   "ts": "2026-09-26 04:52:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-the-distance-value-between-two-arrays",
+   "title": "",
+   "qid": "1486",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406598,
+   "ts": "2026-09-26 04:52:23",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-the-highest-altitude",
+   "title": "",
+   "qid": "1833",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406618,
+   "ts": "2026-09-26 04:52:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-the-k-beauty-of-a-number",
+   "title": "",
+   "qid": "1430",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406654,
+   "ts": "2026-09-26 04:52:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-winner-on-a-tic-tac-toe-game",
+   "title": "",
+   "qid": "1400",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406692,
+   "ts": "2026-09-26 04:52:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "generate-a-string-with-characters-that-have-odd-counts",
+   "title": "",
+   "qid": "1490",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406720,
+   "ts": "2026-09-26 04:52:58",
+   "accepted_today": true
+  },
+  {
+   "slug": "get-maximum-in-generated-array",
+   "title": "",
+   "qid": "1769",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406769,
+   "ts": "2026-09-26 04:53:14",
+   "accepted_today": true
+  },
+  {
+   "slug": "goal-parser-interpretation",
+   "title": "",
+   "qid": "1797",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406786,
+   "ts": "2026-09-26 04:53:21",
+   "accepted_today": true
+  },
+  {
+   "slug": "goat-latin",
+   "title": "",
+   "qid": "851",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406823,
+   "ts": "2026-09-26 04:53:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "greatest-common-divisor-of-strings",
+   "title": "",
+   "qid": "1146",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406856,
+   "ts": "2026-09-26 04:53:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "greatest-english-letter-in-upper-and-lower-case",
+   "title": "",
+   "qid": "1363",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406882,
+   "ts": "2026-09-26 04:53:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "height-checker",
+   "title": "",
+   "qid": "1137",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406926,
+   "ts": "2026-09-26 04:53:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "how-many-numbers-are-smaller-than-the-current-number",
+   "title": "",
+   "qid": "1482",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153406972,
+   "ts": "2026-09-26 04:54:08",
+   "accepted_today": true
+  },
+  {
+   "slug": "increasing-decreasing-string",
+   "title": "",
+   "qid": "1472",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407032,
+   "ts": "2026-09-26 04:54:26",
+   "accepted_today": true
+  },
+  {
+   "slug": "is-subsequence",
+   "title": "",
+   "qid": "392",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407058,
+   "ts": "2026-09-26 04:54:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "kth-missing-positive-number",
+   "title": "",
+   "qid": "1646",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407089,
+   "ts": "2026-09-26 04:54:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "largest-odd-number-in-string",
+   "title": "",
+   "qid": "2032",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407125,
+   "ts": "2026-09-26 04:54:53",
+   "accepted_today": true
+  },
+  {
+   "slug": "largest-substring-between-two-equal-characters",
+   "title": "",
+   "qid": "1746",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407159,
+   "ts": "2026-09-26 04:55:01",
+   "accepted_today": true
+  },
+  {
+   "slug": "largest-triangle-area",
+   "title": "",
+   "qid": "830",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407196,
+   "ts": "2026-09-26 04:55:10",
+   "accepted_today": true
+  },
+  {
+   "slug": "latest-time-by-replacing-hidden-digits",
+   "title": "",
+   "qid": "1858",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407228,
+   "ts": "2026-09-26 04:55:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "long-pressed-name",
+   "title": "",
+   "qid": "961",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407256,
+   "ts": "2026-09-26 04:55:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "longest-alternating-subarray",
+   "title": "",
+   "qid": "2870",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407302,
+   "ts": "2026-09-26 04:55:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "longest-even-odd-subarray-with-threshold",
+   "title": "",
+   "qid": "2866",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407328,
+   "ts": "2026-09-26 04:55:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "lucky-numbers-in-a-matrix",
+   "title": "",
+   "qid": "1496",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407362,
+   "ts": "2026-09-26 04:56:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "majority-element",
+   "title": "",
+   "qid": "169",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407401,
+   "ts": "2026-09-26 04:56:12",
+   "accepted_today": true
+  },
+  {
+   "slug": "make-the-string-great",
+   "title": "",
+   "qid": "1666",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407429,
+   "ts": "2026-09-26 04:56:21",
+   "accepted_today": true
+  },
+  {
+   "slug": "make-two-arrays-equal-by-reversing-subarrays",
+   "title": "",
+   "qid": "1556",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407458,
+   "ts": "2026-09-26 04:56:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "matrix-diagonal-sum",
+   "title": "",
+   "qid": "1677",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407495,
+   "ts": "2026-09-26 04:56:39",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-difference-between-increasing-elements",
+   "title": "",
+   "qid": "2144",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407522,
+   "ts": "2026-09-26 04:56:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-nesting-depth-of-the-parentheses",
+   "title": "",
+   "qid": "1737",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407587,
+   "ts": "2026-09-26 04:57:05",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-number-of-balls-in-a-box",
+   "title": "",
+   "qid": "1844",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407621,
+   "ts": "2026-09-26 04:57:13",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-number-of-words-you-can-type",
+   "title": "",
+   "qid": "1264",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407655,
+   "ts": "2026-09-26 04:57:24",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-population-year",
+   "title": "",
+   "qid": "1983",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407677,
+   "ts": "2026-09-26 04:57:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-product-difference-between-two-pairs",
+   "title": "",
+   "qid": "2042",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407703,
+   "ts": "2026-09-26 04:57:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-product-of-two-elements-in-an-array",
+   "title": "",
+   "qid": "1574",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407745,
+   "ts": "2026-09-26 04:57:52",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-score-after-splitting-a-string",
+   "title": "",
+   "qid": "1537",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407786,
+   "ts": "2026-09-26 04:58:04",
+   "accepted_today": true
+  },
+  {
+   "slug": "mean-of-array-after-removing-some-elements",
+   "title": "",
+   "qid": "1210",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407813,
+   "ts": "2026-09-26 04:58:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "merge-strings-alternately",
+   "title": "",
+   "qid": "1894",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407840,
+   "ts": "2026-09-26 04:58:23",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-changes-to-make-alternating-binary-string",
+   "title": "",
+   "qid": "1884",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407865,
+   "ts": "2026-09-26 04:58:28",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-cost-to-move-chips-to-the-same-position",
+   "title": "",
+   "qid": "1329",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407926,
+   "ts": "2026-09-26 04:58:46",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-distance-to-the-target-element",
+   "title": "",
+   "qid": "1975",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407954,
+   "ts": "2026-09-26 04:58:54",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-index-sum-of-two-lists",
+   "title": "",
+   "qid": "599",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153407974,
+   "ts": "2026-09-26 04:59:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-of-moves-to-seat-everyone",
+   "title": "",
+   "qid": "2148",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408014,
+   "ts": "2026-09-26 04:59:13",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-of-operations-to-convert-time",
+   "title": "",
+   "qid": "2345",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408037,
+   "ts": "2026-09-26 04:59:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-operations-to-make-the-array-increasing",
+   "title": "",
+   "qid": "1938",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408074,
+   "ts": "2026-09-26 04:59:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-time-visiting-all-points",
+   "title": "",
+   "qid": "1395",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408121,
+   "ts": "2026-09-26 04:59:40",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-value-to-get-positive-step-by-step-sum",
+   "title": "",
+   "qid": "1514",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408150,
+   "ts": "2026-09-26 04:59:49",
+   "accepted_today": true
+  },
+  {
+   "slug": "missing-number",
+   "title": "",
+   "qid": "268",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408174,
+   "ts": "2026-09-26 04:59:58",
+   "accepted_today": true
+  },
+  {
+   "slug": "monotonic-array",
+   "title": "",
+   "qid": "932",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408234,
+   "ts": "2026-09-26 05:00:15",
+   "accepted_today": true
+  },
+  {
+   "slug": "move-zeroes",
+   "title": "",
+   "qid": "283",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408262,
+   "ts": "2026-09-26 05:00:23",
+   "accepted_today": true
+  },
+  {
+   "slug": "n-th-tribonacci-number",
+   "title": "",
+   "qid": "1236",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408297,
+   "ts": "2026-09-26 05:00:29",
+   "accepted_today": true
+  },
+  {
+   "slug": "next-greater-element-i",
+   "title": "",
+   "qid": "496",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408333,
+   "ts": "2026-09-26 05:00:38",
+   "accepted_today": true
+  },
+  {
+   "slug": "nim-game",
+   "title": "",
+   "qid": "292",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408388,
+   "ts": "2026-09-26 05:00:57",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-complement",
+   "title": "",
+   "qid": "476",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408410,
+   "ts": "2026-09-26 05:01:03",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-1-bits",
+   "title": "",
+   "qid": "191",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408437,
+   "ts": "2026-09-26 05:01:08",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-common-factors",
+   "title": "",
+   "qid": "2507",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408501,
+   "ts": "2026-09-26 05:01:26",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-days-between-two-dates",
+   "title": "",
+   "qid": "1274",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408534,
+   "ts": "2026-09-26 05:01:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-distinct-averages",
+   "title": "",
+   "qid": "2561",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408556,
+   "ts": "2026-09-26 05:01:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-good-pairs",
+   "title": "",
+   "qid": "1635",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408594,
+   "ts": "2026-09-26 05:01:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-lines-to-write-string",
+   "title": "",
+   "qid": "824",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408632,
+   "ts": "2026-09-26 05:01:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-segments-in-a-string",
+   "title": "",
+   "qid": "434",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408663,
+   "ts": "2026-09-26 05:02:09",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-steps-to-reduce-a-number-to-zero",
+   "title": "",
+   "qid": "1444",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408702,
+   "ts": "2026-09-26 05:02:21",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-students-doing-homework-at-a-given-time",
+   "title": "",
+   "qid": "1560",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408779,
+   "ts": "2026-09-26 05:02:42",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-valid-clock-times",
+   "title": "",
+   "qid": "2528",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408813,
+   "ts": "2026-09-26 05:02:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "occurrences-after-bigram",
+   "title": "",
+   "qid": "1156",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408848,
+   "ts": "2026-09-26 05:03:03",
+   "accepted_today": true
+  },
+  {
+   "slug": "pascals-triangle",
+   "title": "",
+   "qid": "118",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153408874,
+   "ts": "2026-09-26 05:03:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "self-dividing-numbers",
+   "title": "",
+   "qid": "728",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415364,
+   "ts": "2026-09-26 05:34:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "separate-the-digits-in-an-array",
+   "title": "",
+   "qid": "2639",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415387,
+   "ts": "2026-09-26 05:34:33",
+   "accepted_today": true
+  },
+  {
+   "slug": "set-mismatch",
+   "title": "",
+   "qid": "645",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415429,
+   "ts": "2026-09-26 05:34:40",
+   "accepted_today": true
+  },
+  {
+   "slug": "shift-2d-grid",
+   "title": "",
+   "qid": "1386",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415488,
+   "ts": "2026-09-26 05:34:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "shortest-distance-to-a-character",
+   "title": "",
+   "qid": "841",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415525,
+   "ts": "2026-09-26 05:35:07",
+   "accepted_today": true
+  },
+  {
+   "slug": "shuffle-string",
+   "title": "",
+   "qid": "1651",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415549,
+   "ts": "2026-09-26 05:35:15",
+   "accepted_today": true
+  },
+  {
+   "slug": "slowest-key",
+   "title": "",
+   "qid": "1751",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415584,
+   "ts": "2026-09-26 05:35:24",
+   "accepted_today": true
+  },
+  {
+   "slug": "smallest-range-i",
+   "title": "",
+   "qid": "944",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415620,
+   "ts": "2026-09-26 05:35:29",
+   "accepted_today": true
+  },
+  {
+   "slug": "subtract-the-product-and-sum-of-digits-of-an-integer",
+   "title": "",
+   "qid": "1406",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415647,
+   "ts": "2026-09-26 05:35:40",
+   "accepted_today": true
+  },
+  {
+   "slug": "thousand-separator",
+   "title": "",
+   "qid": "1660",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415687,
+   "ts": "2026-09-26 05:35:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "three-consecutive-odds",
+   "title": "",
+   "qid": "1293",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415715,
+   "ts": "2026-09-26 05:35:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "three-divisors",
+   "title": "",
+   "qid": "2083",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415753,
+   "ts": "2026-09-26 05:36:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "truncate-sentence",
+   "title": "",
+   "qid": "1944",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415798,
+   "ts": "2026-09-26 05:36:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "unique-morse-code-words",
+   "title": "",
+   "qid": "822",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415841,
+   "ts": "2026-09-26 05:36:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "unique-number-of-occurrences",
+   "title": "",
+   "qid": "1319",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415879,
+   "ts": "2026-09-26 05:36:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "water-bottles",
+   "title": "",
+   "qid": "1642",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415910,
+   "ts": "2026-09-26 05:36:49",
+   "accepted_today": true
+  },
+  {
+   "slug": "odd-string-difference",
+   "title": "",
+   "qid": "2547",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153415952,
+   "ts": "2026-09-26 05:36:58",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-even-and-odd-bits",
+   "title": "",
+   "qid": "2659",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416012,
+   "ts": "2026-09-26 05:37:16",
+   "accepted_today": true
+  },
+  {
+   "slug": "positions-of-large-groups",
+   "title": "",
+   "qid": "857",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416050,
+   "ts": "2026-09-26 05:37:24",
+   "accepted_today": true
+  },
+  {
+   "slug": "prime-arrangements",
+   "title": "",
+   "qid": "1279",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416081,
+   "ts": "2026-09-26 05:37:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "projection-area-of-3d-shapes",
+   "title": "",
+   "qid": "919",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416124,
+   "ts": "2026-09-26 05:37:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "rank-transform-of-an-array",
+   "title": "",
+   "qid": "1256",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416160,
+   "ts": "2026-09-26 05:37:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-digit-from-number-to-maximize-result",
+   "title": "",
+   "qid": "2337",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416193,
+   "ts": "2026-09-26 05:38:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-one-element-to-make-the-array-strictly-increasing",
+   "title": "",
+   "qid": "2020",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416234,
+   "ts": "2026-09-26 05:38:13",
+   "accepted_today": true
+  },
+  {
+   "slug": "replace-all-s-to-avoid-consecutive-repeating-characters",
+   "title": "",
+   "qid": "1698",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416266,
+   "ts": "2026-09-26 05:38:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "second-largest-digit-in-a-string",
+   "title": "",
+   "qid": "1904",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416315,
+   "ts": "2026-09-26 05:38:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "special-array-with-x-elements-greater-than-or-equal-x",
+   "title": "",
+   "qid": "1730",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416361,
+   "ts": "2026-09-26 05:38:39",
+   "accepted_today": true
+  },
+  {
+   "slug": "string-matching-in-an-array",
+   "title": "",
+   "qid": "1524",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416387,
+   "ts": "2026-09-26 05:38:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "surface-area-of-3d-shapes",
+   "title": "",
+   "qid": "928",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416427,
+   "ts": "2026-09-26 05:39:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-valid-words-in-a-sentence",
+   "title": "",
+   "qid": "2173",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416467,
+   "ts": "2026-09-26 05:39:10",
+   "accepted_today": true
+  },
+  {
+   "slug": "reformat-date",
+   "title": "",
+   "qid": "1283",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416495,
+   "ts": "2026-09-26 05:39:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "reformat-phone-number",
+   "title": "",
+   "qid": "1812",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416535,
+   "ts": "2026-09-26 05:39:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "reformat-the-string",
+   "title": "",
+   "qid": "1532",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416580,
+   "ts": "2026-09-26 05:39:42",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-depth-of-binary-tree",
+   "title": "",
+   "qid": "111",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416613,
+   "ts": "2026-09-26 05:39:54",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-difference-between-highest-and-lowest-of-k-scores",
+   "title": "",
+   "qid": "2112",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416640,
+   "ts": "2026-09-26 05:39:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-game",
+   "title": "",
+   "qid": "3226",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416679,
+   "ts": "2026-09-26 05:40:09",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-of-chairs-in-a-waiting-room",
+   "title": "",
+   "qid": "3426",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416762,
+   "ts": "2026-09-26 05:40:27",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-of-pushes-to-type-word-i",
+   "title": "",
+   "qid": "3275",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416789,
+   "ts": "2026-09-26 05:40:33",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-recolors-to-get-k-consecutive-black-blocks",
+   "title": "",
+   "qid": "2463",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416810,
+   "ts": "2026-09-26 05:40:39",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-string-length-after-removing-substrings",
+   "title": "",
+   "qid": "2800",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416852,
+   "ts": "2026-09-26 05:40:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "most-common-word",
+   "title": "",
+   "qid": "837",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416922,
+   "ts": "2026-09-26 05:41:04",
+   "accepted_today": true
+  },
+  {
+   "slug": "most-frequent-even-element",
+   "title": "",
+   "qid": "2486",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153416943,
+   "ts": "2026-09-26 05:41:12",
+   "accepted_today": true
+  },
+  {
+   "slug": "most-frequent-number-following-key-in-an-array",
+   "title": "",
+   "qid": "2312",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417000,
+   "ts": "2026-09-26 05:41:23",
+   "accepted_today": true
+  },
+  {
+   "slug": "n-ary-tree-postorder-traversal",
+   "title": "",
+   "qid": "776",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417025,
+   "ts": "2026-09-26 05:41:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "n-ary-tree-preorder-traversal",
+   "title": "",
+   "qid": "775",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417084,
+   "ts": "2026-09-26 05:41:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "n-repeated-element-in-size-2n-array",
+   "title": "",
+   "qid": "1001",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417129,
+   "ts": "2026-09-26 05:41:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "neither-minimum-nor-maximum",
+   "title": "",
+   "qid": "2836",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417172,
+   "ts": "2026-09-26 05:42:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-beautiful-pairs",
+   "title": "",
+   "qid": "2831",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417220,
+   "ts": "2026-09-26 05:42:26",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-changing-keys",
+   "title": "",
+   "qid": "3312",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417312,
+   "ts": "2026-09-26 05:42:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-different-integers-in-a-string",
+   "title": "",
+   "qid": "1933",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417353,
+   "ts": "2026-09-26 05:42:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-employees-who-met-the-target",
+   "title": "",
+   "qid": "2876",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417398,
+   "ts": "2026-09-26 05:42:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-islands",
+   "title": "",
+   "qid": "200",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417442,
+   "ts": "2026-09-26 05:43:01",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-recent-calls",
+   "title": "",
+   "qid": "969",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417480,
+   "ts": "2026-09-26 05:43:14",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-senior-citizens",
+   "title": "",
+   "qid": "2727",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417508,
+   "ts": "2026-09-26 05:43:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "number-of-strings-that-appear-as-substrings-in-word",
+   "title": "",
+   "qid": "2099",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417555,
+   "ts": "2026-09-26 05:43:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "online-stock-span",
+   "title": "",
+   "qid": "937",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417602,
+   "ts": "2026-09-26 05:43:42",
+   "accepted_today": true
+  },
+  {
+   "slug": "out-of-boundary-paths",
+   "title": "",
+   "qid": "576",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417649,
+   "ts": "2026-09-26 05:43:52",
+   "accepted_today": true
+  },
+  {
+   "slug": "palindrome-linked-list",
+   "title": "",
+   "qid": "234",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417684,
+   "ts": "2026-09-26 05:44:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "pass-the-pillow",
+   "title": "",
+   "qid": "2645",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417726,
+   "ts": "2026-09-26 05:44:13",
+   "accepted_today": true
+  },
+  {
+   "slug": "path-sum",
+   "title": "",
+   "qid": "112",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417750,
+   "ts": "2026-09-26 05:44:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "permutation-in-string",
+   "title": "",
+   "qid": "567",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417790,
+   "ts": "2026-09-26 05:44:29",
+   "accepted_today": true
+  },
+  {
+   "slug": "product-of-array-except-self",
+   "title": "",
+   "qid": "238",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417812,
+   "ts": "2026-09-26 05:44:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "range-sum-query-immutable",
+   "title": "",
+   "qid": "303",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417847,
+   "ts": "2026-09-26 05:44:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-linked-list-elements",
+   "title": "",
+   "qid": "203",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417897,
+   "ts": "2026-09-26 05:45:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-outermost-parentheses",
+   "title": "",
+   "qid": "1078",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417932,
+   "ts": "2026-09-26 05:45:12",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-trailing-zeros-from-a-string",
+   "title": "",
+   "qid": "2819",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153417976,
+   "ts": "2026-09-26 05:45:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "repeated-substring-pattern",
+   "title": "",
+   "qid": "459",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418012,
+   "ts": "2026-09-26 05:45:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "reshape-the-matrix",
+   "title": "",
+   "qid": "566",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418035,
+   "ts": "2026-09-26 05:45:38",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-linked-list",
+   "title": "",
+   "qid": "206",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418089,
+   "ts": "2026-09-26 05:45:55",
+   "accepted_today": true
+  },
+  {
+   "slug": "rotate-array",
+   "title": "",
+   "qid": "189",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418107,
+   "ts": "2026-09-26 05:46:03",
+   "accepted_today": true
+  },
+  {
+   "slug": "second-minimum-node-in-a-binary-tree",
+   "title": "",
+   "qid": "671",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418130,
+   "ts": "2026-09-26 05:46:09",
+   "accepted_today": true
+  },
+  {
+   "slug": "shortest-completing-word",
+   "title": "",
+   "qid": "749",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418173,
+   "ts": "2026-09-26 05:46:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "shortest-unsorted-continuous-subarray",
+   "title": "",
+   "qid": "581",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418265,
+   "ts": "2026-09-26 05:46:46",
+   "accepted_today": true
+  },
+  {
+   "slug": "shuffle-the-array",
+   "title": "",
+   "qid": "1580",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418294,
+   "ts": "2026-09-26 05:46:52",
+   "accepted_today": true
+  },
+  {
+   "slug": "sign-of-the-product-of-an-array",
+   "title": "",
+   "qid": "1950",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418334,
+   "ts": "2026-09-26 05:47:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "single-number",
+   "title": "",
+   "qid": "136",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418381,
+   "ts": "2026-09-26 05:47:14",
+   "accepted_today": true
+  },
+  {
+   "slug": "single-number-ii",
+   "title": "",
+   "qid": "137",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418414,
+   "ts": "2026-09-26 05:47:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "smallest-even-multiple",
+   "title": "",
+   "qid": "2491",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418456,
+   "ts": "2026-09-26 05:47:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "sort-array-by-parity",
+   "title": "",
+   "qid": "941",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418494,
+   "ts": "2026-09-26 05:47:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "sort-array-by-parity-ii",
+   "title": "",
+   "qid": "958",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418523,
+   "ts": "2026-09-26 05:47:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "sort-the-people",
+   "title": "",
+   "qid": "2502",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418570,
+   "ts": "2026-09-26 05:48:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "sorting-the-sentence",
+   "title": "",
+   "qid": "1970",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418610,
+   "ts": "2026-09-26 05:48:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "split-a-string-in-balanced-strings",
+   "title": "",
+   "qid": "1341",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418654,
+   "ts": "2026-09-26 05:48:21",
+   "accepted_today": true
+  },
+  {
+   "slug": "split-strings-by-separator",
+   "title": "",
+   "qid": "2881",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418684,
+   "ts": "2026-09-26 05:48:30",
+   "accepted_today": true
+  },
+  {
+   "slug": "split-with-minimum-sum",
+   "title": "",
+   "qid": "2650",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418723,
+   "ts": "2026-09-26 05:48:40",
+   "accepted_today": true
+  },
+  {
+   "slug": "squares-of-a-sorted-array",
+   "title": "",
+   "qid": "1019",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418756,
+   "ts": "2026-09-26 05:48:49",
+   "accepted_today": true
+  },
+  {
+   "slug": "student-attendance-record-i",
+   "title": "",
+   "qid": "551",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418802,
+   "ts": "2026-09-26 05:48:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "subarray-sum-equals-k",
+   "title": "",
+   "qid": "560",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418845,
+   "ts": "2026-09-26 05:49:10",
+   "accepted_today": true
+  },
+  {
+   "slug": "subtree-of-another-tree",
+   "title": "",
+   "qid": "572",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418966,
+   "ts": "2026-09-26 05:49:37",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-multiples",
+   "title": "",
+   "qid": "2752",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153418989,
+   "ts": "2026-09-26 05:49:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-all-odd-length-subarrays",
+   "title": "",
+   "qid": "1693",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419013,
+   "ts": "2026-09-26 05:49:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-all-subset-xor-totals",
+   "title": "",
+   "qid": "1993",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419060,
+   "ts": "2026-09-26 05:50:01",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-digits-in-base-k",
+   "title": "",
+   "qid": "1965",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419096,
+   "ts": "2026-09-26 05:50:10",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-digits-of-string-after-convert",
+   "title": "",
+   "qid": "2076",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419132,
+   "ts": "2026-09-26 05:50:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-left-leaves",
+   "title": "",
+   "qid": "404",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419169,
+   "ts": "2026-09-26 05:50:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-root-to-leaf-binary-numbers",
+   "title": "",
+   "qid": "1079",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419207,
+   "ts": "2026-09-26 05:50:42",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-squares-of-special-elements",
+   "title": "",
+   "qid": "2844",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419261,
+   "ts": "2026-09-26 05:50:52",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-subarray-minimums",
+   "title": "",
+   "qid": "943",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419282,
+   "ts": "2026-09-26 05:51:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-unique-elements",
+   "title": "",
+   "qid": "1848",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419326,
+   "ts": "2026-09-26 05:51:10",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-values-at-indices-with-k-set-bits",
+   "title": "",
+   "qid": "3093",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419359,
+   "ts": "2026-09-26 05:51:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "summary-ranges",
+   "title": "",
+   "qid": "228",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419401,
+   "ts": "2026-09-26 05:51:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "teemo-attacking",
+   "title": "",
+   "qid": "495",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419444,
+   "ts": "2026-09-26 05:51:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "the-k-weakest-rows-in-a-matrix",
+   "title": "",
+   "qid": "1463",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419471,
+   "ts": "2026-09-26 05:51:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "third-maximum-number",
+   "title": "",
+   "qid": "414",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419528,
+   "ts": "2026-09-26 05:52:06",
+   "accepted_today": true
+  },
+  {
+   "slug": "to-lower-case",
+   "title": "",
+   "qid": "742",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419557,
+   "ts": "2026-09-26 05:52:12",
+   "accepted_today": true
+  },
+  {
+   "slug": "toeplitz-matrix",
+   "title": "",
+   "qid": "777",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419591,
+   "ts": "2026-09-26 05:52:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "transpose-matrix",
+   "title": "",
+   "qid": "898",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419625,
+   "ts": "2026-09-26 05:52:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "two-sum-ii-input-array-is-sorted",
+   "title": "",
+   "qid": "167",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419648,
+   "ts": "2026-09-26 05:52:42",
+   "accepted_today": true
+  },
+  {
+   "slug": "two-sum-iv-input-is-a-bst",
+   "title": "",
+   "qid": "653",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419679,
+   "ts": "2026-09-26 05:52:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "type-of-triangle",
+   "title": "",
+   "qid": "3321",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419737,
+   "ts": "2026-09-26 05:53:04",
+   "accepted_today": true
+  },
+  {
+   "slug": "ugly-number",
+   "title": "",
+   "qid": "263",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419757,
+   "ts": "2026-09-26 05:53:09",
+   "accepted_today": true
+  },
+  {
+   "slug": "uncommon-words-from-two-sentences",
+   "title": "",
+   "qid": "920",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419785,
+   "ts": "2026-09-26 05:53:33",
+   "accepted_today": true
+  },
+  {
+   "slug": "unique-email-addresses",
+   "title": "",
+   "qid": "965",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419859,
+   "ts": "2026-09-26 05:53:39",
+   "accepted_today": true
+  },
+  {
+   "slug": "univalued-binary-tree",
+   "title": "",
+   "qid": "1005",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419893,
+   "ts": "2026-09-26 05:53:51",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-anagram",
+   "title": "",
+   "qid": "242",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419941,
+   "ts": "2026-09-26 05:54:01",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-boomerang",
+   "title": "",
+   "qid": "1115",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153419990,
+   "ts": "2026-09-26 05:54:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-mountain-array",
+   "title": "",
+   "qid": "978",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153420026,
+   "ts": "2026-09-26 05:54:22",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-palindrome",
+   "title": "",
+   "qid": "125",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2153420069,
+   "ts": "2026-09-26 05:54:32",
+   "accepted_today": true
+  },
+  {
+   "slug": "power-of-two",
+   "title": "Power of Two",
+   "qid": "231",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154662642,
+   "ts": "2026-09-27 11:34:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "pascals-triangle-ii",
+   "title": "",
+   "qid": "119",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154665243,
+   "ts": "2026-09-27 11:35:02",
+   "accepted_today": true
+  },
+  {
+   "slug": "path-crossing",
+   "title": "",
+   "qid": "1619",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154665574,
+   "ts": "2026-09-27 11:35:24",
+   "accepted_today": true
+  },
+  {
+   "slug": "percentage-of-letter-in-string",
+   "title": "",
+   "qid": "2365",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154667313,
+   "ts": "2026-09-27 11:37:27",
+   "accepted_today": true
+  },
+  {
+   "slug": "perfect-number",
+   "title": "",
+   "qid": "507",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154667576,
+   "ts": "2026-09-27 11:37:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "power-of-four",
+   "title": "",
+   "qid": "342",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154667806,
+   "ts": "2026-09-27 11:38:05",
+   "accepted_today": true
+  },
+  {
+   "slug": "power-of-three",
+   "title": "",
+   "qid": "326",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154668068,
+   "ts": "2026-09-27 11:38:23",
+   "accepted_today": true
+  },
+  {
+   "slug": "prime-number-of-set-bits-in-binary-representation",
+   "title": "",
+   "qid": "767",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154668300,
+   "ts": "2026-09-27 11:38:46",
+   "accepted_today": true
+  },
+  {
+   "slug": "range-addition-ii",
+   "title": "",
+   "qid": "598",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154669936,
+   "ts": "2026-09-27 11:40:29",
+   "accepted_today": true
+  },
+  {
+   "slug": "ransom-note",
+   "title": "",
+   "qid": "383",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154670032,
+   "ts": "2026-09-27 11:40:36",
+   "accepted_today": true
+  },
+  {
+   "slug": "rectangle-overlap",
+   "title": "",
+   "qid": "866",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154670141,
+   "ts": "2026-09-27 11:40:50",
+   "accepted_today": true
+  },
+  {
+   "slug": "relative-ranks",
+   "title": "",
+   "qid": "506",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154670388,
+   "ts": "2026-09-27 11:41:04",
+   "accepted_today": true
+  },
+  {
+   "slug": "relative-sort-array",
+   "title": "",
+   "qid": "1217",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154670554,
+   "ts": "2026-09-27 11:41:16",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-all-adjacent-duplicates-in-string",
+   "title": "",
+   "qid": "1128",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154670735,
+   "ts": "2026-09-27 11:41:36",
+   "accepted_today": true
+  },
+  {
+   "slug": "remove-palindromic-subsequences",
+   "title": "",
+   "qid": "1454",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154671029,
+   "ts": "2026-09-27 11:41:46",
+   "accepted_today": true
+  },
+  {
+   "slug": "replace-elements-with-greatest-element-on-right-side",
+   "title": "",
+   "qid": "1231",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154671180,
+   "ts": "2026-09-27 11:41:55",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-bits",
+   "title": "",
+   "qid": "190",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154671290,
+   "ts": "2026-09-27 11:41:59",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-only-letters",
+   "title": "",
+   "qid": "953",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154672631,
+   "ts": "2026-09-27 11:43:35",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-prefix-of-word",
+   "title": "",
+   "qid": "2128",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154672702,
+   "ts": "2026-09-27 11:43:41",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-string",
+   "title": "",
+   "qid": "344",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154674154,
+   "ts": "2026-09-27 11:45:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-string-ii",
+   "title": "",
+   "qid": "541",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154674272,
+   "ts": "2026-09-27 11:45:25",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-vowels-of-a-string",
+   "title": "",
+   "qid": "345",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154674336,
+   "ts": "2026-09-27 11:45:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-words-in-a-string-iii",
+   "title": "",
+   "qid": "557",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154674540,
+   "ts": "2026-09-27 11:45:46",
+   "accepted_today": true
+  },
+  {
+   "slug": "richest-customer-wealth",
+   "title": "",
+   "qid": "1791",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154675317,
+   "ts": "2026-09-27 11:46:37",
+   "accepted_today": true
+  },
+  {
+   "slug": "rings-and-rods",
+   "title": "",
+   "qid": "2226",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154675382,
+   "ts": "2026-09-27 11:46:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "robot-return-to-origin",
+   "title": "",
+   "qid": "657",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154676700,
+   "ts": "2026-09-27 11:48:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "row-with-maximum-ones",
+   "title": "",
+   "qid": "2737",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154676796,
+   "ts": "2026-09-27 11:48:26",
+   "accepted_today": true
+  },
+  {
+   "slug": "running-sum-of-1d-array",
+   "title": "",
+   "qid": "1603",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154676882,
+   "ts": "2026-09-27 11:48:31",
+   "accepted_today": true
+  },
+  {
+   "slug": "score-of-a-string",
+   "title": "",
+   "qid": "3379",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154678228,
+   "ts": "2026-09-27 11:50:07",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-palindrome-ii",
+   "title": "",
+   "qid": "680",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154678866,
+   "ts": "2026-09-27 11:50:54",
+   "accepted_today": true
+  },
+  {
+   "slug": "valid-perfect-square",
+   "title": "",
+   "qid": "367",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154678970,
+   "ts": "2026-09-27 11:51:09",
+   "accepted_today": true
+  },
+  {
+   "slug": "verifying-an-alien-dictionary",
+   "title": "",
+   "qid": "990",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154679198,
+   "ts": "2026-09-27 11:51:14",
+   "accepted_today": true
+  },
+  {
+   "slug": "word-pattern",
+   "title": "",
+   "qid": "290",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154679267,
+   "ts": "2026-09-27 11:51:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "xor-operation-in-an-array",
+   "title": "",
+   "qid": "1610",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154680571,
+   "ts": "2026-09-27 11:52:56",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-closest-person",
+   "title": "",
+   "qid": "3830",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154680673,
+   "ts": "2026-09-27 11:53:03",
+   "accepted_today": true
+  },
+  {
+   "slug": "restore-finishing-order",
+   "title": "",
+   "qid": "4008",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154682094,
+   "ts": "2026-09-27 11:54:53",
+   "accepted_today": true
+  },
+  {
+   "slug": "shortest-distance-to-target-string-in-a-circular-array",
+   "title": "",
+   "qid": "2598",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154685372,
+   "ts": "2026-09-27 11:58:48",
+   "accepted_today": true
+  },
+  {
+   "slug": "substrings-of-size-three-with-distinct-characters",
+   "title": "",
+   "qid": "1987",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154686673,
+   "ts": "2026-09-27 12:00:25",
+   "accepted_today": true
+  },
+  {
+   "slug": "reverse-degree-of-a-string",
+   "title": "",
+   "qid": "3811",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154686765,
+   "ts": "2026-09-27 12:00:33",
+   "accepted_today": true
+  },
+  {
+   "slug": "unique-3-digit-even-numbers",
+   "title": "",
+   "qid": "3799",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154688137,
+   "ts": "2026-09-27 12:02:11",
+   "accepted_today": true
+  },
+  {
+   "slug": "fruits-into-baskets-ii",
+   "title": "",
+   "qid": "3790",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154688246,
+   "ts": "2026-09-27 12:02:15",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-unique-subarray-sum-after-deletion",
+   "title": "",
+   "qid": "3788",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154688329,
+   "ts": "2026-09-27 12:02:20",
+   "accepted_today": true
+  },
+  {
+   "slug": "transform-array-by-parity",
+   "title": "",
+   "qid": "3778",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154689641,
+   "ts": "2026-09-27 12:03:55",
+   "accepted_today": true
+  },
+  {
+   "slug": "maximum-difference-between-even-and-odd-frequency-i",
+   "title": "",
+   "qid": "3753",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154689713,
+   "ts": "2026-09-27 12:04:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-valid-pair-of-adjacent-digits-in-string",
+   "title": "",
+   "qid": "3736",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154691083,
+   "ts": "2026-09-27 12:05:40",
+   "accepted_today": true
+  },
+  {
+   "slug": "sum-of-variable-length-subarrays",
+   "title": "",
+   "qid": "3731",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154691202,
+   "ts": "2026-09-27 12:05:45",
+   "accepted_today": true
+  },
+  {
+   "slug": "zigzag-grid-traversal-with-skip",
+   "title": "",
+   "qid": "3708",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154692315,
+   "ts": "2026-09-27 12:07:00",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-operations-to-make-columns-strictly-increasing",
+   "title": "",
+   "qid": "3691",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154693733,
+   "ts": "2026-09-27 12:08:36",
+   "accepted_today": true
+  },
+  {
+   "slug": "substring-matching-pattern",
+   "title": "",
+   "qid": "3684",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154693798,
+   "ts": "2026-09-27 12:08:43",
+   "accepted_today": true
+  },
+  {
+   "slug": "smallest-number-with-all-set-bits",
+   "title": "",
+   "qid": "3676",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154695105,
+   "ts": "2026-09-27 12:10:19",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-number-of-operations-to-make-elements-in-array-distinct",
+   "title": "",
+   "qid": "3656",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154696472,
+   "ts": "2026-09-27 12:11:57",
+   "accepted_today": true
+  },
+  {
+   "slug": "minimum-operations-to-make-array-values-equal-to-k",
+   "title": "",
+   "qid": "3621",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154696590,
+   "ts": "2026-09-27 12:12:06",
+   "accepted_today": true
+  },
+  {
+   "slug": "find-the-original-typed-string-i",
+   "title": "",
+   "qid": "3617",
+   "source_bank": "friend_bank240.json",
+   "verdict": "Accepted",
+   "sid": 2154696680,
+   "ts": "2026-09-27 12:12:10",
+   "accepted_today": true
+  }
+ ],
+ "rejected": [
+  {
+   "slug": "adjacent-increasing-subarrays-detection-i",
+   "title": "",
+   "qid": "3612",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:03:14",
+   "accepted_today": false
+  },
+  {
+   "slug": "minimum-element-after-replacement-with-digit-sum",
+   "title": "",
+   "qid": "3606",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:03:36",
+   "accepted_today": false
+  },
+  {
+   "slug": "check-balanced-string",
+   "title": "",
+   "qid": "3636",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:03:58",
+   "accepted_today": false
+  },
+  {
+   "slug": "find-the-k-th-character-in-string-game-i",
+   "title": "",
+   "qid": "3600",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:04:21",
+   "accepted_today": false
+  },
+  {
+   "slug": "the-two-sneaky-numbers-of-digitville",
+   "title": "",
+   "qid": "3581",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:04:43",
+   "accepted_today": false
+  },
+  {
+   "slug": "find-the-key-of-the-numbers",
+   "title": "",
+   "qid": "3568",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:05:07",
+   "accepted_today": false
+  },
+  {
+   "slug": "convert-date-to-binary",
+   "title": "",
+   "qid": "3567",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:05:30",
+   "accepted_today": false
+  },
+  {
+   "slug": "snake-in-matrix",
+   "title": "",
+   "qid": "3533",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:05:52",
+   "accepted_today": false
+  },
+  {
+   "slug": "number-of-bit-changes-to-make-two-integers-equal",
+   "title": "",
+   "qid": "3508",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:06:15",
+   "accepted_today": false
+  },
+  {
+   "slug": "lexicographically-smallest-string-after-a-swap",
+   "title": "",
+   "qid": "3484",
+   "source_bank": "friend_bank240.json",
+   "verdict": null,
+   "sid": null,
+   "ts": "2026-09-26 06:06:37",
+   "accepted_today": false
+  }
+ ]
+}

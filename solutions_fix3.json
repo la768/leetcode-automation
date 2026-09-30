@@ -1,0 +1,4 @@
+{
+ "shortest-distance-to-target-string-in-a-circular-array": "from typing import List\nclass Solution:\n    def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:\n        n = len(words)\n        best = float('inf')\n        for i in range(n):\n            if words[i] == target:\n                d = abs(startIndex - i)\n                d = min(d, n - d)\n                if d < best:\n                    best = d\n        return -1 if best == float('inf') else best",
+ "substrings-of-size-three-with-distinct-characters": "class Solution:\n    def countGoodSubstrings(self, s: str) -> int:\n        return sum(1 for i in range(len(s) - 2) if len(set(s[i:i + 3])) == 3)"
+}

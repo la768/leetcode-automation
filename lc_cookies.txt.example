@@ -1,0 +1,20 @@
+# Netscape HTTP Cookie File
+# ---------------------------------------------------------------------------
+# TEMPLATE - copy this file to  lc_cookies.txt  and paste YOUR OWN values.
+# Fields are separated by a real TAB character.
+#
+# How to get the values:
+#   1. Log in to https://leetcode.com in a browser ON THIS SAME MACHINE.
+#   2. F12 -> Application (Chrome) / Storage (Firefox) -> Cookies -> https://leetcode.com
+#   3. Find row LEETCODE_SESSION -> copy its VALUE (opaque ~800-char token, NOT eyJ...)
+#   4. Find row csrftoken -> copy its VALUE
+#   5. Replace the placeholders below, save as lc_cookies.txt
+#
+# IMPORTANT: LEETCODE_SESSION is NOT a JWT. The eyJ... JWT you see in localStorage
+# or document.cookie is the auth token, not the session cookie. Copy the cookie
+# value from the Application -> Cookies grid.
+#
+# Tip: run "node get_cookie.js" to auto-extract cookies from a browser you log in to.
+# ---------------------------------------------------------------------------
+.leetcode.com	TRUE	/	TRUE	0	LEETCODE_SESSION	PASTE_YOUR_SESSION_TOKEN_HERE
+.leetcode.com	TRUE	/	TRUE	0	csrftoken	PASTE_YOUR_CSRFTOKEN_HERE
